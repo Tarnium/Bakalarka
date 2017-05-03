@@ -17,7 +17,6 @@ namespace QuestGenerator
 
         public Person(int count, int maxMotivation)
         {
-            
             this.Name = "Person" + count;
             this.Motivations = GenerateMotivations(maxMotivation);
         }
