@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace QuestGenerator.SubQuests_Actions
+{
+    public class Gather : Quest
+    {
+        public Gather()
+        {
+            this.QuestText = new List<string>() { "Gather the " };
+            this.Vars = new List<string>() { ObjectNpcLocation.GenerateObject() };
+        }
+    }
+}
