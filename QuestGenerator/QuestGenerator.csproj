@@ -59,7 +59,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quests\Quest.cs" />
     <Compile Include="Quests\SuperQuest.cs" />
+    <Compile Include="SubQuests-Actions\Capture.cs" />
     <Compile Include="SubQuests-Actions\Damage.cs" />
+    <Compile Include="SubQuests-Actions\Experiment.cs" />
+    <Compile Include="SubQuests-Actions\Explore.cs" />
+    <Compile Include="SubQuests-Actions\Exchange.cs" />
+    <Compile Include="SubQuests-Actions\Escort.cs" />
+    <Compile Include="SubQuests-Actions\Defend.cs" />
+    <Compile Include="SubQuests-Actions\Gather.cs" />
     <Compile Include="SubQuests-Actions\Get.cs" />
     <Compile Include="SubQuests-Actions\GoTo.cs" />
     <Compile Include="SubQuests-Actions\Learn.cs" />
