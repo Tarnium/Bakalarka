@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuestGenerator.Quests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,21 +9,19 @@ namespace QuestGenerator.Motivations
 {
     public abstract class Motivation
     {
-        private Quest quest;
-        public Quest Quest { get => quest; set => quest = value; }
+        private SuperQuest quests;
+        public SuperQuest Quests { get => quests; set => quests = value; }
 
         public abstract void GenerateAbstractQuests(int maxDepth);
 
 
-        public void JoinQuest(Quest q)
+        public void AddQuest(Quest q)
         {
-            string s = this.Quest.GenerateQuestText() + q.GenerateQuestText();
-            this.Quest.QuestText.Clear();
-            this.Quest.QuestText.Add(s);
-            if (this.Quest.Vars != null)
+            if (quests == null)
             {
-                this.Quest.Vars.Clear();
+                quests = new SuperQuest();
             }
+            Quests.quests.Add(q);
         }
     }
 }

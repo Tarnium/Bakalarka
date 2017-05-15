@@ -58,9 +58,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quests\Quest.cs" />
-    <Compile Include="SubQuests\Damage.cs" />
-    <Compile Include="SubQuests\GoTo.cs" />
-    <Compile Include="SubQuests\Learn.cs" />
+    <Compile Include="Quests\SuperQuest.cs" />
+    <Compile Include="SubQuests-Actions\Damage.cs" />
+    <Compile Include="SubQuests-Actions\GoTo.cs" />
+    <Compile Include="SubQuests-Actions\Learn.cs" />
     <Compile Include="World.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

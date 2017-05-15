@@ -43,7 +43,7 @@ namespace QuestGenerator
         {
             SerenityMotivation sm = new SerenityMotivation();
             sm.GenerateAbstractQuests(Convert.ToInt32(questDepthNUD.Value));
-            this.richTextBox1.Text = sm.Quest.GenerateQuestText();
+            this.richTextBox1.Text = sm.Quests.GenerateSuperQuestText();
         }
     }
 }

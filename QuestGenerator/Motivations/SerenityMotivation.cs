@@ -16,10 +16,10 @@ namespace QuestGenerator.Motivations
             {
                 case 0:
                     //Revenge - Justice
-                    this.Quest = new GoTo(0,maxDepth);
+                    this.AddQuest(new GoTo(0,maxDepth));
                     Quest q = new Damage();
-                    this.JoinQuest(q);
-                    this.Quest.QuestText.Add("That will teach them a lesson");
+                    q.QuestText.Add("That will teach them a lesson");
+                    this.AddQuest(q);
                     break;
                 case 1:
                     break;
