@@ -66,5 +66,35 @@ namespace QuestGenerator
             cm.GenerateAbstractQuests(Convert.ToInt32(questDepthNUD.Value));
             this.richTextBox1.Text = cm.sqName + Environment.NewLine + cm.Quests.GenerateSuperQuestText();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ReputationMotivation rm = new ReputationMotivation();
+            rm.GenerateAbstractQuests(Convert.ToInt32(questDepthNUD.Value));
+            this.richTextBox1.Text = rm.sqName + Environment.NewLine + rm.Quests.GenerateSuperQuestText();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            WealthMotivation wm = new WealthMotivation();
+            wm.GenerateAbstractQuests(Convert.ToInt32(questDepthNUD.Value));
+            this.richTextBox1.Text = wm.sqName + Environment.NewLine + wm.Quests.GenerateSuperQuestText();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ProtectionMotivation pm = new ProtectionMotivation();
+            pm.GenerateAbstractQuests(Convert.ToInt32(questDepthNUD.Value));
+            this.richTextBox1.Text = pm.sqName + Environment.NewLine + pm.Quests.GenerateSuperQuestText();
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            EquipmentMotivation em = new EquipmentMotivation();
+            em.GenerateAbstractQuests(Convert.ToInt32(questDepthNUD.Value));
+            this.richTextBox1.Text = em.sqName + Environment.NewLine + em.Quests.GenerateSuperQuestText();
+        }
     }
 }

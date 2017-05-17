@@ -53,8 +53,12 @@
     </Compile>
     <Compile Include="Motivations\ConquestMotivation.cs" />
     <Compile Include="Motivations\ComfortMotivation.cs" />
+    <Compile Include="Motivations\EquipmentMotivation.cs" />
+    <Compile Include="Motivations\ProtectionMotivation.cs" />
     <Compile Include="Motivations\Motivation.cs" />
     <Compile Include="Motivations\KnowledgeMotivation.cs" />
+    <Compile Include="Motivations\WealthMotivation.cs" />
+    <Compile Include="Motivations\ReputationMotivation.cs" />
     <Compile Include="Motivations\SerenityMotivation.cs" />
     <Compile Include="ObjectNpcLocation.cs" />
     <Compile Include="Person.cs" />
