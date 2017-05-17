@@ -9,7 +9,7 @@ namespace QuestGenerator.SubQuests_Actions
     public class Use : Quest
     {
         public Use() {
-            this.QuestText = new List<string>() { "Use " , "on "};
+            this.QuestText = new List<string>() { "Use " , "on ", "to "};
             this.Vars = new List<string>() { ObjectNpcLocation.GenerateObject(), ObjectNpcLocation.GenerateObjectNpcLocation()};
         }
     }

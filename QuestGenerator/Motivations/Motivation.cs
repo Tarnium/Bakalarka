@@ -11,6 +11,7 @@ namespace QuestGenerator.Motivations
     {
         private SuperQuest quests;
         public SuperQuest Quests { get => quests; set => quests = value; }
+        public string sqName;
 
         public abstract void GenerateAbstractQuests(int maxDepth);
 

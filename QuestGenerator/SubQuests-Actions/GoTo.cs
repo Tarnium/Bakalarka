@@ -16,7 +16,7 @@ namespace QuestGenerator.SubQuests
             {
                 case 0:
                     this.Vars = null;
-                    this.QuestText = new List<string> { "Stay here and " };
+                    this.QuestText = new List<string> { "Stay here/there and " };
                     break;
                 case 1:
                     this.Vars = new List<string>() { ObjectNpcLocation.GenerateNpcLocation()};

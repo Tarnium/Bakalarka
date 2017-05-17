@@ -28,10 +28,10 @@ namespace QuestGenerator.SubQuests_Actions
                     this.QuestText = new List<string>() { q.GenerateQuestText(), new Gather().GenerateQuestText()};
                     break;
                 case 2:
-                /*    depth++;
-                    Quest q = new Learn(depth, maxDepth);
-                    this.Vars = q.Vars;
-                    this.QuestText = q.QuestText; */
+                    depth++;
+                    Quest steal = new Steal(depth, maxDepth);
+                    this.Vars = steal.Vars;
+                    this.QuestText = steal.QuestText;
                     break;
             }
         }

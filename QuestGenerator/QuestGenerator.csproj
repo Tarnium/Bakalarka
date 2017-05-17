@@ -51,7 +51,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Motivations\ConquestMotivation.cs" />
+    <Compile Include="Motivations\ComfortMotivation.cs" />
     <Compile Include="Motivations\Motivation.cs" />
+    <Compile Include="Motivations\KnowledgeMotivation.cs" />
     <Compile Include="Motivations\SerenityMotivation.cs" />
     <Compile Include="ObjectNpcLocation.cs" />
     <Compile Include="Person.cs" />
@@ -61,6 +64,17 @@
     <Compile Include="Quests\SuperQuest.cs" />
     <Compile Include="SubQuests-Actions\Capture.cs" />
     <Compile Include="SubQuests-Actions\Damage.cs" />
+    <Compile Include="SubQuests-Actions\Steal.cs" />
+    <Compile Include="SubQuests-Actions\Use.cs" />
+    <Compile Include="SubQuests-Actions\Take.cs" />
+    <Compile Include="SubQuests-Actions\Stealth.cs" />
+    <Compile Include="SubQuests-Actions\Spy.cs" />
+    <Compile Include="SubQuests-Actions\Report.cs" />
+    <Compile Include="SubQuests-Actions\Repair.cs" />
+    <Compile Include="SubQuests-Actions\Give.cs" />
+    <Compile Include="SubQuests-Actions\Kill.cs" />
+    <Compile Include="SubQuests-Actions\Listen.cs" />
+    <Compile Include="SubQuests-Actions\Read.cs" />
     <Compile Include="SubQuests-Actions\Experiment.cs" />
     <Compile Include="SubQuests-Actions\Explore.cs" />
     <Compile Include="SubQuests-Actions\Exchange.cs" />

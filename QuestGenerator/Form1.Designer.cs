@@ -30,6 +30,8 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.paramPage = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.questDepthNUD = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,19 +49,20 @@
             this.motivationFocusList = new System.Windows.Forms.CheckedListBox();
             this.motivationList = new System.Windows.Forms.CheckedListBox();
             this.Interactive = new System.Windows.Forms.TabPage();
-            this.simpleGraph = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.questDepthNUD = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.simpleGraph = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.paramPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.questDepthNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repetitionNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.optionsNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motivationDepthNUD)).BeginInit();
             this.Interactive.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.questDepthNUD)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -102,6 +105,27 @@
             this.paramPage.TabIndex = 0;
             this.paramPage.Text = "Parameters";
             this.paramPage.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(494, 202);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 20);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Quest Depth";
+            // 
+            // questDepthNUD
+            // 
+            this.questDepthNUD.Location = new System.Drawing.Point(618, 196);
+            this.questDepthNUD.Name = "questDepthNUD";
+            this.questDepthNUD.Size = new System.Drawing.Size(120, 26);
+            this.questDepthNUD.TabIndex = 16;
+            this.questDepthNUD.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             // 
             // label7
             // 
@@ -266,6 +290,9 @@
             // 
             // Interactive
             // 
+            this.Interactive.Controls.Add(this.button4);
+            this.Interactive.Controls.Add(this.button3);
+            this.Interactive.Controls.Add(this.button2);
             this.Interactive.Controls.Add(this.richTextBox1);
             this.Interactive.Controls.Add(this.button1);
             this.Interactive.Location = new System.Drawing.Point(4, 29);
@@ -276,15 +303,13 @@
             this.Interactive.Text = "Interactive";
             this.Interactive.UseVisualStyleBackColor = true;
             // 
-            // simpleGraph
+            // richTextBox1
             // 
-            this.simpleGraph.Location = new System.Drawing.Point(4, 29);
-            this.simpleGraph.Name = "simpleGraph";
-            this.simpleGraph.Padding = new System.Windows.Forms.Padding(3);
-            this.simpleGraph.Size = new System.Drawing.Size(794, 501);
-            this.simpleGraph.TabIndex = 2;
-            this.simpleGraph.Text = "Simple Graph";
-            this.simpleGraph.UseVisualStyleBackColor = true;
+            this.richTextBox1.Location = new System.Drawing.Point(7, 69);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(570, 244);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
             // 
             // button1
             // 
@@ -296,34 +321,45 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // questDepthNUD
+            // simpleGraph
             // 
-            this.questDepthNUD.Location = new System.Drawing.Point(618, 196);
-            this.questDepthNUD.Name = "questDepthNUD";
-            this.questDepthNUD.Size = new System.Drawing.Size(120, 26);
-            this.questDepthNUD.TabIndex = 16;
-            this.questDepthNUD.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.simpleGraph.Location = new System.Drawing.Point(4, 29);
+            this.simpleGraph.Name = "simpleGraph";
+            this.simpleGraph.Padding = new System.Windows.Forms.Padding(3);
+            this.simpleGraph.Size = new System.Drawing.Size(794, 501);
+            this.simpleGraph.TabIndex = 2;
+            this.simpleGraph.Text = "Simple Graph";
+            this.simpleGraph.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // button2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(494, 202);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 20);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Quest Depth";
+            this.button2.Location = new System.Drawing.Point(199, 31);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(186, 32);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "KnowledgeQuest";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // richTextBox1
+            // button3
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(7, 69);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(570, 244);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.button3.Location = new System.Drawing.Point(391, 31);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(186, 32);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "ComfortQuest";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(583, 31);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(186, 32);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "ConquestQuest";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
@@ -336,12 +372,12 @@
             this.tabControl.ResumeLayout(false);
             this.paramPage.ResumeLayout(false);
             this.paramPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.questDepthNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repetitionNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.optionsNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.motivationDepthNUD)).EndInit();
             this.Interactive.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.questDepthNUD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -372,6 +408,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown questDepthNUD;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 

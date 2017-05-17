@@ -43,7 +43,28 @@ namespace QuestGenerator
         {
             SerenityMotivation sm = new SerenityMotivation();
             sm.GenerateAbstractQuests(Convert.ToInt32(questDepthNUD.Value));
-            this.richTextBox1.Text = sm.Quests.GenerateSuperQuestText();
+            this.richTextBox1.Text = sm.sqName + Environment.NewLine + sm.Quests.GenerateSuperQuestText();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            KnowledgeMotivation km = new KnowledgeMotivation();
+            km.GenerateAbstractQuests(Convert.ToInt32(questDepthNUD.Value));
+            this.richTextBox1.Text = km.sqName + Environment.NewLine + km.Quests.GenerateSuperQuestText();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ComfortMotivation cm = new ComfortMotivation();
+            cm.GenerateAbstractQuests(Convert.ToInt32(questDepthNUD.Value));
+            this.richTextBox1.Text = cm.sqName + Environment.NewLine + cm.Quests.GenerateSuperQuestText();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ConquestMotivation cm = new ConquestMotivation();
+            cm.GenerateAbstractQuests(Convert.ToInt32(questDepthNUD.Value));
+            this.richTextBox1.Text = cm.sqName + Environment.NewLine + cm.Quests.GenerateSuperQuestText();
         }
     }
 }

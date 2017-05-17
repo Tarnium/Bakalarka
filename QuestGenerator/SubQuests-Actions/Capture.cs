@@ -10,7 +10,7 @@ namespace QuestGenerator.SubQuests_Actions
     {
         public Capture()
         {
-            this.Vars = new List<string>() { ObjectNpcLocation.GenerateNpcLocation() };
+            this.Vars = new List<string>() { ObjectNpcLocation.GeneratePerson() };
             this.QuestText = new List<string>() { "Capture " };
         }
     }
