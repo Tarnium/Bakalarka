@@ -21,7 +21,8 @@ namespace QuestGenerator.SubQuests
                 case 1:
                     //Person
                     this.Vars = new List<string> { ObjectNpcLocation.GeneratePerson() };
-                    this.QuestText = new List<string> { "Hurt " };
+                    this.QuestText = new List<string> { "Fight " };
+                    this.Relationchange.Add(Vars[0], 0.7);
                     break;
                 case 2:
                     //Location

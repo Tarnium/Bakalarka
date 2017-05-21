@@ -10,26 +10,71 @@ namespace QuestGenerator
     public class Person
     {
         public string Name { get; set; }
-        public List<Dictionary<Motivation, int>> Motivations { get => motivations; set => motivations = value; }
+        public Dictionary<string, int> Motivations { get => motivations; set => motivations = value; }
+        public static Random random = new Random();
 
-        private List<Dictionary<Motivation, int>> motivations;
+        private Dictionary<string, int> motivations = new Dictionary<string, int>();
 
 
         public Person(int count, int maxMotivation)
         {
             this.Name = "Person" + count;
-            this.Motivations = GenerateMotivations(maxMotivation);
+            GenerateMotivations(maxMotivation);
         }
 
-        public List<Dictionary<Motivation, int>> GenerateMotivations(int max)
+        public void GenerateMotivations(int max)
         {
-            throw new NotImplementedException();
+            for(int i=0; i < 3; i++)
+            {
+                string m = RandMotivation();
+                int strength = random.Next(max + 1);
+                if (Motivations.Keys.Contains(m))
+                {
+                    motivations[m] += strength;
+                }
+                else
+                {
+                    motivations.Add(m, strength);
+                }
+            }
+        }
+
+        private string RandMotivation()
+        {
+            int k = random.Next(9);
+            switch (k)
+            {
+                case 0:
+                    return "comfort";
+                case 1:
+                    return "conquest";
+                case 2:
+                    return "equipment";
+                case 3:
+                    return "knowledge";
+                case 4:
+                    return "protection";
+                case 5:
+                    return "reputation";
+                case 6:
+                    return "serenity";
+                case 7:
+                    return "wealth";
+                default:
+                    return "ability";
+            }
         }
 
         public Person(string name, int maxMotivation)
         {
             this.Name = name;
-            this.Motivations = GenerateMotivations(maxMotivation);
+            GenerateMotivations(maxMotivation);
+        }
+
+        public Person(string name, Dictionary<string,int> motvalues)
+        {
+            this.Name = name;
+            this.Motivations = motvalues;
         }
     }
 }

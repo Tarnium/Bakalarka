@@ -8,13 +8,13 @@ namespace QuestGenerator
 {
     public abstract class Quest
     {
-        private Person questGiver;
         private List<string> vars;
         private List<string> questText;
+        private Dictionary<string, double> relationchange = new Dictionary<string, double>();
 
         public List<string> QuestText { get => questText; set => questText = value; }
         public List<string> Vars { get => vars; set => vars = value; }
-        public Person QuestGiver { get => questGiver; set => questGiver = value; }
+        public Dictionary<string, double> Relationchange { get => relationchange; set => relationchange = value; }
 
         public virtual string GenerateQuestText()
         {

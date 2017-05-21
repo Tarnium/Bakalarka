@@ -27,6 +27,7 @@ namespace QuestGenerator.SubQuests_Actions
                     Quest take = new Take();
                     take.Vars[1] = q1.Vars[0];
                     this.QuestText.Add(take.GenerateQuestText());
+                    this.Relationchange.Add(q1.Vars[0], 0.9);
                     break;
                 case 1:
                     //go kill take
@@ -40,6 +41,7 @@ namespace QuestGenerator.SubQuests_Actions
                     Quest take1 = new Take();
                     take1.Vars[1] = kill.Vars[0];
                     this.QuestText.Add(take1.GenerateQuestText());
+                    this.Relationchange.Add(kill.Vars[0], 0);
                     break;
                 case 2:
                     //steal object from location

@@ -11,6 +11,7 @@ namespace QuestGenerator.SubQuests_Actions
         public Escort() {
             this.Vars = new List<string>() { ObjectNpcLocation.GeneratePerson(), ObjectNpcLocation.GenerateLocation() };
             this.QuestText = new List<string>() { "Escort ", Vars[0] + " must reach the " };
+            this.Relationchange.Add(Vars[0], 1.5);
         }
     }
 }

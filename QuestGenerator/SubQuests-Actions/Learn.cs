@@ -27,6 +27,7 @@ namespace QuestGenerator.SubQuests
                     this.QuestText = q.QuestText;
                     string person = ObjectNpcLocation.GeneratePerson();
                     this.QuestText.Add("Listen to " +person +". " + person+ " knows where to find what you're looking for.");
+                    this.Relationchange.Add(person, 1.1);
                     break;
                 case 2:
                     //Book with intel

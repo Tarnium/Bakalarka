@@ -20,6 +20,7 @@ namespace QuestGenerator.SubQuests_Actions
                     //Kill
                     this.QuestText = new List<string>() { "Kill ", ", have no mercy. It's a foul creature." };
                     this.Vars = new List<string>() { ObjectNpcLocation.GeneratePerson() };
+                    this.Relationchange.Add(Vars[0], 0);
                     break;
                 case 1:
                     //go and kill
@@ -28,7 +29,8 @@ namespace QuestGenerator.SubQuests_Actions
                     this.QuestText = new List<string>() { go.GenerateQuestText() };
                     this.QuestText[0] += "Kill ";
                     this.Vars = new List<string>() { ObjectNpcLocation.GeneratePerson() };
-                    this.QuestText.Add(" , have no mercy. It's a foul creature.");
+                    this.QuestText.Add("Have no mercy. It's a foul creature.");
+                    this.Relationchange.Add(Vars[0], 0);
                     break;
 
             }

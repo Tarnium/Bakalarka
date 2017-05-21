@@ -12,6 +12,7 @@ namespace QuestGenerator.SubQuests_Actions
         {
             this.Vars = new List<string>() { ObjectNpcLocation.GeneratePerson() };
             this.QuestText = new List<string>() { "Capture " };
+            this.Relationchange.Add(Vars[0], 0.7);
         }
     }
 }

@@ -21,6 +21,7 @@ namespace QuestGenerator.SubQuests
                 case 1:
                     this.Vars = new List<string>() { ObjectNpcLocation.GenerateNpcLocation()};
                     this.QuestText = new List<string> { "Wander around and find " };
+                    this.Relationchange.Add(Vars[0], 1.1);
                     break;
                 case 2:
                     depth++;

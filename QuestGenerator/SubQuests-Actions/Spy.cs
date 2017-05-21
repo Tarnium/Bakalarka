@@ -11,6 +11,7 @@ namespace QuestGenerator.SubQuests_Actions
         public Spy() {
             this.QuestText = new List<string>() { "Spy as much as you can about" };
             this.Vars = new List<string>() { ObjectNpcLocation.GenerateObjectNpc() };
+            this.Relationchange.Add(Vars[0], 0.9);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace QuestGenerator.SubQuests_Actions
         public Take() {
             this.QuestText = new List<string>() { "Take " , "from  "};
             this.Vars = new List<string>() { ObjectNpcLocation.GenerateObject(), ObjectNpcLocation.GenerateNpcLocation()};
+            this.Relationchange.Add(Vars[1], 0.95);
         }
     }
 }
