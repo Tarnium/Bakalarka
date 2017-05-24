@@ -18,14 +18,15 @@ namespace QuestGenerator.SubQuests_Actions
                 //You have object
                 case 0:
                     this.Vars = new List<string>() { ObjectNpcLocation.GenerateObject() };
-                    this.QuestText = new List<string> { "You have " };
+                    this.QuestText = new List<string> { "You should have " };
                     break;
                 //Go to <Location> and take <Object>
                 case 1:
                     depth++;
                     Quest q = new GoTo(depth, maxDepth);
-                    this.Vars = null;
-                    this.QuestText = new List<string>() { q.GenerateQuestText(), new Gather().GenerateQuestText()};
+                    Quest g = new Gather();
+                    this.QuestText = new List<string>() { q.GenerateQuestText()+ g.QuestText[0]};
+                    this.Vars = new List<string>() {g.Vars[0] };
                     break;
                 case 2:
                     depth++;

@@ -10,6 +10,14 @@ namespace QuestGenerator.Motivations
 {
     class WealthMotivation : Motivation
     {
+        public WealthMotivation()
+        {
+
+        }
+        public WealthMotivation(string questgiver) : base(questgiver)
+        {
+        }
+
         public override void GenerateAbstractQuests(int maxDepth)
         {
             Random r = new Random();
@@ -35,7 +43,7 @@ namespace QuestGenerator.Motivations
                     //Make valuables
                     this.sqName = "Make valuables for resale";
                     Quest report1 = new Repair();
-                    report1.QuestText.Add("I am sure I'm able to sell it well now.");
+                    report1.QuestText.Add("I am sure I might be able to sell it well.");
                     this.AddQuest(report1);
                     break;
             }

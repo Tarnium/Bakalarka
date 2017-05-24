@@ -10,6 +10,14 @@ namespace QuestGenerator.Motivations
 {
     class ComfortMotivation : Motivation
     {
+        public ComfortMotivation()
+        {
+
+        }
+        public ComfortMotivation(string questgiver) : base(questgiver)
+        {
+        }
+
         public override void GenerateAbstractQuests(int maxDepth)
         {
             Random r = new Random();

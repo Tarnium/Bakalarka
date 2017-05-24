@@ -18,22 +18,20 @@ namespace QuestGenerator
         public int options;
         public bool relations;
         public bool dramatic;
+        public double drama = 0;
         public Dictionary<string, double> relationship = new Dictionary<string, double>();
 
         public World()
         {
-            InitializeFocus();
             motDepth = 1;
             repetitionFactor = 1;
             options = 3;
             dramatic = false;
             relations = false;
-            InitializeNPC();
-            InitializeQuestPool();
             InitializeRelationship();
         }
 
-        private void InitializeRelationship()
+        public void InitializeRelationship()
         {
             this.relationship = new Dictionary<string, double>();
             foreach(Person p in people)
@@ -42,19 +40,27 @@ namespace QuestGenerator
             }
         }
 
-        private void InitializeQuestPool()
+        public List<Tuple<SuperQuest,double>> getFittestQuests()
         {
-            //throw new NotImplementedException();
-        }
+            List<Tuple<SuperQuest, double>> vysl = new List<Tuple<SuperQuest, double>>();
+            //implement Fitness sort
+            foreach(SuperQuest sq in quests)
+            {
+                double fitness = sq.fitness;
+                if (relations)
+                {
+                    fitness *= relationship[sq.questgiver];
+                }
+                if (dramatic)
+                {
+                    fitness *= 1 / Math.Abs(drama - sq.drama);
+                }
+                vysl.Add(new Tuple<SuperQuest,double>( sq, fitness));
+            }
 
-        private void InitializeNPC()
-        {
-            //throw new NotImplementedException();
-        }
-
-        private void InitializeFocus()
-        {
-            //throw new NotImplementedException();
+            vysl = vysl.OrderByDescending(t => t.Item2).ToList();
+           
+            return vysl.Take(options).ToList();
         }
     }
 }

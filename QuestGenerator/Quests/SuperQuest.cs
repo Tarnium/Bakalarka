@@ -11,6 +11,8 @@ namespace QuestGenerator.Quests
         public List<Quest> quests = new List<Quest>();
         public string questgiver;
         public double fitness = 1.0;
+        public string name;
+        public double drama;
 
         public string GenerateSuperQuestText()
         {
@@ -37,6 +39,7 @@ namespace QuestGenerator.Quests
                     vysl.Add(new Tuple<string, double>(k.Key, k.Value));
                 }
             }
+            vysl.Add(new Tuple<string, double>(questgiver, 1.3));
             return vysl;
         }
 

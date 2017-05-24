@@ -10,6 +10,14 @@ namespace QuestGenerator.Motivations
 {
     class SerenityMotivation : Motivation
     {
+        public SerenityMotivation()
+        {
+
+        }
+        public SerenityMotivation(string questgiver) : base(questgiver)
+        {
+        }
+
         public override void GenerateAbstractQuests(int maxDepth)
         {
             Random r = new Random();

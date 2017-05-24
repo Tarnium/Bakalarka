@@ -10,7 +10,14 @@ namespace QuestGenerator.Motivations
 {
     class AbilityMotivation : Motivation
     {
-        
+        public AbilityMotivation()
+        {
+
+        }
+        public AbilityMotivation(string questgiver) : base(questgiver)
+        {
+        }
+
         public override void GenerateAbstractQuests(int maxDepth)
         {
             Random r = new Random();
@@ -39,7 +46,7 @@ namespace QuestGenerator.Motivations
                 case 3:
                     this.sqName = "Weapon training";
                     Quest dmg = new Damage();
-                    dmg.QuestText.Add("That might show you how to swing that weapon.");
+                    dmg.QuestText.Add("Practice makes perfect.");
                     this.AddQuest(dmg);
                     break;
                 case 4:

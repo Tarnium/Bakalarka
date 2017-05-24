@@ -10,6 +10,14 @@ namespace QuestGenerator.Motivations
 {
     class ReputationMotivation : Motivation
     {
+        public ReputationMotivation()
+        {
+
+        }
+        public ReputationMotivation(string questgiver) : base(questgiver)
+        {
+        }
+
         public override void GenerateAbstractQuests(int maxDepth)
         {
             Random r = new Random();

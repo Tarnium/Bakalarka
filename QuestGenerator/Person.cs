@@ -27,7 +27,7 @@ namespace QuestGenerator
             for(int i=0; i < 3; i++)
             {
                 string m = RandMotivation();
-                int strength = random.Next(max + 1);
+                int strength = random.Next(max)+1;
                 if (Motivations.Keys.Contains(m))
                 {
                     motivations[m] += strength;
@@ -75,6 +75,58 @@ namespace QuestGenerator
         {
             this.Name = name;
             this.Motivations = motvalues;
+        }
+
+        public Motivation randomMotivation(List<string> focus)
+        {
+            Dictionary<string, int> mots = this.motivations;
+            foreach(string s in mots.Keys)
+            {
+                if (focus.Contains(s))
+                {
+                    mots[s] = mots[s] * 2;
+                }
+            }
+
+            int choices = 0;
+            foreach (int c in mots.Values)
+            {
+                choices += c;
+            }
+
+            int r = random.Next(choices)+1;
+            foreach(var item in mots)
+            {
+                if(r < item.Value)
+                {
+                    switch (item.Key)
+                    {
+                        case "ability":
+                            return new AbilityMotivation(this.Name);
+                        case "comfort":
+                            return new ComfortMotivation(this.Name);
+                        case "conquest":
+                            return new ConquestMotivation(this.Name);
+                        case "equipment":
+                            return new EquipmentMotivation(this.Name);
+                        case "knowledge":
+                            return new KnowledgeMotivation(this.Name);
+                        case "protection":
+                            return new ProtectionMotivation(this.Name);
+                        case "reputation":
+                            return new ReputationMotivation(this.Name);
+                        case "serenity":
+                            return new SerenityMotivation(this.Name);
+                        default:
+                            return new WealthMotivation(this.Name);
+                    }
+                }
+                else
+                {
+                    r = r - item.Value;
+                }
+            }
+            return new WealthMotivation(this.Name);
         }
     }
 }

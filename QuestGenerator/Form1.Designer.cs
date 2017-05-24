@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.paramPage = new System.Windows.Forms.TabPage();
+            this.dcCb = new System.Windows.Forms.CheckBox();
+            this.relationsCb = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.questDepthNUD = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
@@ -59,12 +61,10 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.simpleGraph = new System.Windows.Forms.TabPage();
-            this.relationsCb = new System.Windows.Forms.CheckBox();
-            this.dcCb = new System.Windows.Forms.CheckBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button10 = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.paramPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.questDepthNUD)).BeginInit();
@@ -83,10 +83,10 @@
             this.tabControl.Controls.Add(this.paramPage);
             this.tabControl.Controls.Add(this.Interactive);
             this.tabControl.Controls.Add(this.simpleGraph);
-            this.tabControl.Location = new System.Drawing.Point(1, 1);
+            this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(802, 534);
+            this.tabControl.Size = new System.Drawing.Size(986, 640);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl.TabIndex = 0;
             // 
@@ -113,10 +113,30 @@
             this.paramPage.Location = new System.Drawing.Point(4, 29);
             this.paramPage.Name = "paramPage";
             this.paramPage.Padding = new System.Windows.Forms.Padding(3);
-            this.paramPage.Size = new System.Drawing.Size(794, 501);
+            this.paramPage.Size = new System.Drawing.Size(978, 607);
             this.paramPage.TabIndex = 0;
             this.paramPage.Text = "Parameters";
             this.paramPage.UseVisualStyleBackColor = true;
+            // 
+            // dcCb
+            // 
+            this.dcCb.AutoSize = true;
+            this.dcCb.Location = new System.Drawing.Point(618, 296);
+            this.dcCb.Name = "dcCb";
+            this.dcCb.Size = new System.Drawing.Size(141, 24);
+            this.dcCb.TabIndex = 19;
+            this.dcCb.Text = "Dramatic curve";
+            this.dcCb.UseVisualStyleBackColor = true;
+            // 
+            // relationsCb
+            // 
+            this.relationsCb.AutoSize = true;
+            this.relationsCb.Location = new System.Drawing.Point(618, 265);
+            this.relationsCb.Name = "relationsCb";
+            this.relationsCb.Size = new System.Drawing.Size(102, 24);
+            this.relationsCb.TabIndex = 18;
+            this.relationsCb.Text = "Relations";
+            this.relationsCb.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -414,30 +434,50 @@
             this.simpleGraph.Location = new System.Drawing.Point(4, 29);
             this.simpleGraph.Name = "simpleGraph";
             this.simpleGraph.Padding = new System.Windows.Forms.Padding(3);
-            this.simpleGraph.Size = new System.Drawing.Size(794, 501);
+            this.simpleGraph.Size = new System.Drawing.Size(978, 607);
             this.simpleGraph.TabIndex = 2;
             this.simpleGraph.Text = "Simple Adventure";
             this.simpleGraph.UseVisualStyleBackColor = true;
             // 
-            // relationsCb
+            // button12
             // 
-            this.relationsCb.AutoSize = true;
-            this.relationsCb.Location = new System.Drawing.Point(618, 265);
-            this.relationsCb.Name = "relationsCb";
-            this.relationsCb.Size = new System.Drawing.Size(102, 24);
-            this.relationsCb.TabIndex = 18;
-            this.relationsCb.Text = "Relations";
-            this.relationsCb.UseVisualStyleBackColor = true;
+            this.button12.Location = new System.Drawing.Point(760, 542);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(188, 43);
+            this.button12.TabIndex = 3;
+            this.button12.Text = "Save Quest Log";
+            this.button12.UseVisualStyleBackColor = true;
             // 
-            // dcCb
+            // button11
             // 
-            this.dcCb.AutoSize = true;
-            this.dcCb.Location = new System.Drawing.Point(618, 296);
-            this.dcCb.Name = "dcCb";
-            this.dcCb.Size = new System.Drawing.Size(141, 24);
-            this.dcCb.TabIndex = 19;
-            this.dcCb.Text = "Dramatic curve";
-            this.dcCb.UseVisualStyleBackColor = true;
+            this.button11.Location = new System.Drawing.Point(30, 542);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(179, 43);
+            this.button11.TabIndex = 2;
+            this.button11.Text = "Select Quest";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Location = new System.Drawing.Point(30, 41);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(918, 471);
+            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button10
             // 
@@ -447,52 +487,13 @@
             this.button10.TabIndex = 0;
             this.button10.Text = "Initialize World";
             this.button10.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 41);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(735, 308);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(30, 355);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(179, 43);
-            this.button11.TabIndex = 2;
-            this.button11.Text = "Select Quest";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(577, 355);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(188, 43);
-            this.button12.TabIndex = 3;
-            this.button12.Text = "Save Quest Log";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 532);
+            this.ClientSize = new System.Drawing.Size(996, 650);
             this.Controls.Add(this.tabControl);
             this.Name = "Form1";
             this.Text = "Quest Generator";

@@ -1,5 +1,6 @@
 ﻿using QuestGenerator.Motivations;
 using QuestGenerator.Quests;
+using QuestGenerator;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,17 +22,11 @@ namespace QuestGenerator
             InitializeComponent();
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.Columns.Add("questgiver", "Questgiver");
+            dataGridView1.Columns.Add("questname", "Quest Name");
             dataGridView1.Columns.Add("quests", "Available Quests");
             dataGridView1.Columns.Add("fitness", "Fitness");
-            dataGridView1.Rows.Add("Garryth","sadoahdowqhdoiqowdioq n /n qdjqoidoqijjo \n dqpojd qpojdq q", 1.23123);
-            dataGridView1.Rows.Add("Kaelyssa","sadoahdowqhdoiqowdioq n /n qdjqoidoqijjo \n dqpojd qpojdq q", 1.3332);
-            dataGridView1.Rows.Add("Narn" ,"sadoahdowqhdoiqowdioq n /n qdjqoidoqijjo \n dqpojd qpojdq q", 3.141);
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.Columns[0].Width = 100;
-            ConquestMotivation cm = new ConquestMotivation();
-            cm.GenerateAbstractQuests(3);
-            dataGridView1.Rows.Add(cm.sqName, cm.Quests, cm.Quests.questgiver);
-            SuperQuest sq = (SuperQuest)dataGridView1.Rows[3].Cells[1].Value;
         }
 
         private void Motivations_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,11 +139,66 @@ namespace QuestGenerator
             AbilityMotivation em = new AbilityMotivation();
             em.GenerateAbstractQuests(Convert.ToInt32(questDepthNUD.Value));
             this.richTextBox1.Text = em.sqName + Environment.NewLine + em.Quests.GenerateSuperQuestText();
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+        }
+
+        //Initialize world
+        private void button10_Click(object sender, EventArgs e)
+        {
+            //Doplni svet nahodnymi postavami
+            int count = this.world.people.Count;
+            int max = Convert.ToInt32(charNumber.Value);
+            for (int i = 0; i < max - count; i++)
+            {
+                GeneratePerson(Convert.ToInt32(motivationDepthNUD.Value));
+            }
+
+            List<string> focus = new List<string>();
+            foreach(var item in this.motivationFocusList.CheckedItems)
+            {
+                focus.Add(item.ToString());
+            }
+
+            foreach(Person p in this.world.people)
+            {
+                for(int i = 0; i < 5; i++)
+                {
+                    Motivation m = p.randomMotivation(focus);
+                    m.GenerateAbstractQuests(Convert.ToInt32(motivationDepthNUD.Value));
+                    this.world.quests.Add(m.Quests);
+                }
+            }
+
+            this.world.InitializeRelationship();
+            this.world.repetitionFactor = Convert.ToInt32(this.repetitionNUD.Value) / 100;
+            this.world.options = Convert.ToInt32(this.optionsNUD.Value);
+            this.world.relations = this.relationsCb.Checked;
+            this.world.dramatic = this.dcCb.Checked;
+
+            dataGridView1.Rows.Clear();
+
+            List<Tuple<SuperQuest, double>> fitQuests = world.getFittestQuests();
+            foreach(Tuple<SuperQuest,double> t in fitQuests)
+            {
+                dataGridView1.Rows.Add(t.Item1.questgiver, t.Item1.name, t.Item1, t.Item2);
+            }
+        }
+
+        private void GeneratePerson(int v)
+        {
+            Person p = new Person(ObjectNpcLocation.GeneratePerson(), v);
+            if(this.world.people != null)
+            {
+                this.world.people.Add(p);
+                this.peopleList.Items.Add(p.Name);
+            }
+            else
+            {
+                this.world.people = new List<Person>() { p };
+            }
         }
     }
 }

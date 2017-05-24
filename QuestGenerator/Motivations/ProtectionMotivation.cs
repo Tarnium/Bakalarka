@@ -10,6 +10,14 @@ namespace QuestGenerator.Motivations
 {
     class ProtectionMotivation : Motivation
     {
+        public ProtectionMotivation()
+        {
+
+        }
+        public ProtectionMotivation(string questgiver) : base(questgiver)
+        {
+        }
+
         public override void GenerateAbstractQuests(int maxDepth)
         {
             Random r = new Random();

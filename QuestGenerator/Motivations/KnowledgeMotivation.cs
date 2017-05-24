@@ -10,6 +10,14 @@ namespace QuestGenerator.Motivations
 {
     class KnowledgeMotivation : Motivation
     {
+        public KnowledgeMotivation()
+        {
+
+        }
+        public KnowledgeMotivation(string questgiver) : base(questgiver)
+        {
+        }
+
         public override void GenerateAbstractQuests(int maxDepth)
         {
             Random r = new Random();
@@ -35,9 +43,11 @@ namespace QuestGenerator.Motivations
                 case 2:
                     //Deliver item for study
                     this.sqName = "Deliver Item for study";
-                    this.AddQuest(new Get(0,maxDepth));
+                    Quest get = new Get(0, maxDepth);
+                    this.AddQuest(get);
                     this.AddQuest(new GoTo(1,maxDepth));
                     Quest give = new Give();
+                    give.Vars[0] = get.Vars[0];
                     give.QuestText.Add("They'll study the item and we will know more.");
                     this.AddQuest(give);
                     break;
@@ -47,7 +57,7 @@ namespace QuestGenerator.Motivations
                     this.AddQuest(new Give());
                     this.AddQuest(new GoTo(1, maxDepth));
                     Quest use = new Use();
-                    use.QuestText.Add("to observe it's behavior.");
+                    use.QuestText.Add(" observe it's behavior.");
                     this.AddQuest(use);
                     this.AddQuest(new GoTo(3, maxDepth));
                     this.AddQuest(new Give());

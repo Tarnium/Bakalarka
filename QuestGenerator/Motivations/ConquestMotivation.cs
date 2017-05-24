@@ -10,6 +10,14 @@ namespace QuestGenerator.Motivations
 {
     class ConquestMotivation : Motivation
     {
+        public ConquestMotivation()
+        {
+         
+        }
+        public ConquestMotivation(string questgiver) : base(questgiver)
+        {
+        }
+
         public override void GenerateAbstractQuests(int maxDepth)
         {
             Random r = new Random();

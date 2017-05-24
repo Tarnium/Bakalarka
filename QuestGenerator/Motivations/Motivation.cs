@@ -12,7 +12,6 @@ namespace QuestGenerator.Motivations
         private SuperQuest quests;
         public SuperQuest Quests { get => quests; set => quests = value; }
         public string sqName;
-        string name;
         string questgiver;
 
         public Motivation()
@@ -32,6 +31,7 @@ namespace QuestGenerator.Motivations
             if (quests == null)
             {
                 quests = new SuperQuest();
+                quests.name = sqName;
             }
             Quests.quests.Add(q);
         }
