@@ -20,6 +20,7 @@ namespace QuestGenerator.Motivations
 
         public override void GenerateAbstractQuests(int maxDepth)
         {
+            this.Quests.questgiver = this.questgiver;
             Random r = new Random();
             switch (r.Next(3))
             {

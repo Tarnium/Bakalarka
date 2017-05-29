@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace QuestGenerator
 {
@@ -148,6 +149,7 @@ namespace QuestGenerator
         //Initialize world
         private void button10_Click(object sender, EventArgs e)
         {
+            this.world.quests.Clear();
             //Doplni svet nahodnymi postavami
             int count = this.world.people.Count;
             int max = Convert.ToInt32(charNumber.Value);
@@ -167,13 +169,14 @@ namespace QuestGenerator
                 for(int i = 0; i < 5; i++)
                 {
                     Motivation m = p.randomMotivation(focus);
+                    m.questgiver = p.Name;
                     m.GenerateAbstractQuests(Convert.ToInt32(motivationDepthNUD.Value));
                     this.world.quests.Add(m.Quests);
                 }
             }
 
             this.world.InitializeRelationship();
-            this.world.repetitionFactor = Convert.ToInt32(this.repetitionNUD.Value) / 100;
+            this.world.repetitionFactor = Convert.ToDouble(this.repetitionNUD.Value) / 100;
             this.world.options = Convert.ToInt32(this.optionsNUD.Value);
             this.world.relations = this.relationsCb.Checked;
             this.world.dramatic = this.dcCb.Checked;
@@ -198,6 +201,82 @@ namespace QuestGenerator
             else
             {
                 this.world.people = new List<Person>() { p };
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if(this.dataGridView1.SelectedRows.Count < 1)
+            {
+                return;
+            }
+            ChooseQuest();
+        }
+
+        private void ChooseQuest()
+        {
+            SuperQuest q = (SuperQuest)this.dataGridView1.SelectedRows[0].Cells[2].Value;
+            q.fitness = 0;
+            //repetition
+            foreach(SuperQuest sq in this.world.quests)
+            {
+                if(sq.name == q.name)
+                {
+                    sq.fitness *= (this.world.repetitionFactor);
+                }
+            }
+            //relation
+            if (relationsCb.Checked)
+            {
+                foreach(var item in q.getRelationShipChanges())
+                {
+                    if (this.world.relationship.ContainsKey(item.Item1))
+                    {
+                        this.world.relationship[item.Item1] *= item.Item2;
+                    }
+                }
+            }
+
+            //To DO drama
+
+            //pridame do pribehu
+            this.world.story.Add(q);
+
+            //preratame fitness a dame nove moznosti
+            dataGridView1.Rows.Clear();
+
+            List<Tuple<SuperQuest, double>> fitQuests = world.getFittestQuests();
+            foreach (Tuple<SuperQuest, double> t in fitQuests)
+            {
+                dataGridView1.Rows.Add(t.Item1.questgiver, t.Item1.name, t.Item1, t.Item2);
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            if(this.world.story.Count > 0)
+            {
+                // Create a string array with the lines of text
+                string[] lines = new string[this.world.story.Count];
+                for(int i=0;i<this.world.story.Count;i++)
+                {
+                    lines[i] = world.story[i].GenerateSuperQuestText();
+                }
+
+                // Set a variable to the My Documents path.
+                string mydocpath = Environment.CurrentDirectory;
+
+                // Write the string array to a new file named "WriteLines.txt".
+                using (StreamWriter outputFile = new StreamWriter(mydocpath + @"\story.txt"))
+                {
+                    foreach (string line in lines)
+                    {
+                        outputFile.WriteLine(line);
+                        outputFile.WriteLine(Environment.NewLine);
+                    }
+                }
+
+
             }
         }
     }

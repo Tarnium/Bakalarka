@@ -12,15 +12,17 @@ namespace QuestGenerator.Motivations
         private SuperQuest quests;
         public SuperQuest Quests { get => quests; set => quests = value; }
         public string sqName;
-        string questgiver;
+        public string questgiver;
 
         public Motivation()
         {
             this.questgiver = "";
+            this.Quests = new SuperQuest();
         }
         public Motivation(string questgiver)
         {
             this.questgiver = questgiver;
+            this.Quests = new SuperQuest();
         }
 
         public abstract void GenerateAbstractQuests(int maxDepth);
@@ -31,8 +33,8 @@ namespace QuestGenerator.Motivations
             if (quests == null)
             {
                 quests = new SuperQuest();
-                quests.name = sqName;
             }
+            quests.name = sqName;
             Quests.quests.Add(q);
         }
     }

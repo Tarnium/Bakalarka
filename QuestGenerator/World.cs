@@ -13,6 +13,7 @@ namespace QuestGenerator
         public List<string> focus = new List<string>();
         public List<Person> people = new List<Person>();
         public List<SuperQuest> quests = new List<SuperQuest>();
+        public List<SuperQuest> story = new List<SuperQuest>();
         public int motDepth = 0;
         public double repetitionFactor;
         public int options;
