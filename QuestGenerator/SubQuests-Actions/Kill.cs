@@ -12,6 +12,7 @@ namespace QuestGenerator.SubQuests_Actions
         public Kill(int depth, int maxDepth)
         {
 
+            this.Drama = 10;
             int random = ObjectNpcLocation.random.Next(2);
             if (depth == maxDepth) random = 0;
             switch (random)

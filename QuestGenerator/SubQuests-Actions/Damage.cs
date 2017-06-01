@@ -10,6 +10,7 @@ namespace QuestGenerator.SubQuests
     {
         public Damage()
         {
+            this.Drama = 6;
             int random = ObjectNpcLocation.random.Next(3);
             switch (random)
             {

@@ -10,6 +10,7 @@ namespace QuestGenerator.SubQuests
     {
         public Learn(int depth,int maxDepth)
         {
+            this.Drama = 2;
             int random = ObjectNpcLocation.random.Next(3);
             if (depth == maxDepth) random = 0;
             switch (random)

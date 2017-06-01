@@ -11,6 +11,7 @@ namespace QuestGenerator.SubQuests_Actions
     {
         public Steal(int depth, int maxDepth)
         {
+            this.Drama = 7;
             int random = ObjectNpcLocation.random.Next(3);
             if (depth == maxDepth) random = 2;
             switch (random)
@@ -24,10 +25,13 @@ namespace QuestGenerator.SubQuests_Actions
                     depth++;
                     Quest q1 = new Stealth();
                     this.QuestText[0] += q1.GenerateQuestText();
+                    this.updateDrama(q1.Drama);
                     Quest take = new Take();
                     take.Vars[1] = q1.Vars[0];
                     this.QuestText.Add(take.GenerateQuestText());
                     this.Relationchange.Add(q1.Vars[0], 0.9);
+                    this.updateDrama(take.Drama);
+                    this.updateDrama(q.Drama);
                     break;
                 case 1:
                     //go kill take
@@ -42,6 +46,9 @@ namespace QuestGenerator.SubQuests_Actions
                     take1.Vars[1] = kill.Vars[0];
                     this.QuestText.Add(take1.GenerateQuestText());
                     this.Relationchange.Add(kill.Vars[0], 0);
+                    this.updateDrama(go.Drama);
+                    this.updateDrama(kill.Drama);
+                    this.updateDrama(take1.Drama);
                     break;
                 case 2:
                     //steal object from location

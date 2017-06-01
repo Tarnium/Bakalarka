@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.paramPage = new System.Windows.Forms.TabPage();
             this.dcCb = new System.Windows.Forms.CheckBox();
@@ -65,6 +65,7 @@
             this.button11 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button10 = new System.Windows.Forms.Button();
+            this.dramaSetting = new System.Windows.Forms.ComboBox();
             this.tabControl.SuspendLayout();
             this.paramPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.questDepthNUD)).BeginInit();
@@ -79,19 +80,20 @@
             // 
             // tabControl
             // 
-            this.tabControl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tabControl.Controls.Add(this.paramPage);
             this.tabControl.Controls.Add(this.Interactive);
             this.tabControl.Controls.Add(this.simpleGraph);
-            this.tabControl.Location = new System.Drawing.Point(12, 12);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(986, 640);
+            this.tabControl.Size = new System.Drawing.Size(996, 650);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl.TabIndex = 0;
             // 
             // paramPage
             // 
+            this.paramPage.Controls.Add(this.dramaSetting);
             this.paramPage.Controls.Add(this.dcCb);
             this.paramPage.Controls.Add(this.relationsCb);
             this.paramPage.Controls.Add(this.label8);
@@ -113,7 +115,7 @@
             this.paramPage.Location = new System.Drawing.Point(4, 29);
             this.paramPage.Name = "paramPage";
             this.paramPage.Padding = new System.Windows.Forms.Padding(3);
-            this.paramPage.Size = new System.Drawing.Size(978, 607);
+            this.paramPage.Size = new System.Drawing.Size(988, 617);
             this.paramPage.TabIndex = 0;
             this.paramPage.Text = "Parameters";
             this.paramPage.UseVisualStyleBackColor = true;
@@ -127,6 +129,7 @@
             this.dcCb.TabIndex = 19;
             this.dcCb.Text = "Dramatic curve";
             this.dcCb.UseVisualStyleBackColor = true;
+            this.dcCb.CheckedChanged += new System.EventHandler(this.dcCb_CheckedChanged);
             // 
             // relationsCb
             // 
@@ -322,7 +325,7 @@
             this.Interactive.Location = new System.Drawing.Point(4, 29);
             this.Interactive.Name = "Interactive";
             this.Interactive.Padding = new System.Windows.Forms.Padding(3);
-            this.Interactive.Size = new System.Drawing.Size(978, 607);
+            this.Interactive.Size = new System.Drawing.Size(988, 617);
             this.Interactive.TabIndex = 1;
             this.Interactive.Text = "MotivationTest";
             this.Interactive.UseVisualStyleBackColor = true;
@@ -434,13 +437,14 @@
             this.simpleGraph.Location = new System.Drawing.Point(4, 29);
             this.simpleGraph.Name = "simpleGraph";
             this.simpleGraph.Padding = new System.Windows.Forms.Padding(3);
-            this.simpleGraph.Size = new System.Drawing.Size(978, 607);
+            this.simpleGraph.Size = new System.Drawing.Size(988, 617);
             this.simpleGraph.TabIndex = 2;
             this.simpleGraph.Text = "Simple Adventure";
             this.simpleGraph.UseVisualStyleBackColor = true;
             // 
             // button12
             // 
+            this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button12.Location = new System.Drawing.Point(760, 542);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(188, 43);
@@ -451,6 +455,7 @@
             // 
             // button11
             // 
+            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button11.Location = new System.Drawing.Point(30, 542);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(179, 43);
@@ -464,14 +469,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(30, 41);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -491,6 +496,18 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
+            // dramaSetting
+            // 
+            this.dramaSetting.Enabled = false;
+            this.dramaSetting.FormattingEnabled = true;
+            this.dramaSetting.Items.AddRange(new object[] {
+            "Kishotenketsu",
+            "Freytag"});
+            this.dramaSetting.Location = new System.Drawing.Point(765, 292);
+            this.dramaSetting.Name = "dramaSetting";
+            this.dramaSetting.Size = new System.Drawing.Size(172, 28);
+            this.dramaSetting.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -499,6 +516,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "Form1";
             this.Text = "Quest Generator";
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.tabControl.ResumeLayout(false);
             this.paramPage.ResumeLayout(false);
             this.paramPage.PerformLayout();
@@ -552,6 +570,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.ComboBox dramaSetting;
     }
 }
 

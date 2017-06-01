@@ -35,17 +35,19 @@ namespace QuestGenerator
         public void InitializeRelationship()
         {
             this.relationship = new Dictionary<string, double>();
-            foreach(Person p in people)
+            foreach (Person p in people)
             {
                 this.relationship.Add(p.Name, 1);
             }
         }
 
-        public List<Tuple<SuperQuest,double>> getFittestQuests()
+        public List<Tuple<SuperQuest, double>> getFittestQuests()
         {
             List<Tuple<SuperQuest, double>> vysl = new List<Tuple<SuperQuest, double>>();
             //implement Fitness sort
-            foreach(SuperQuest sq in quests)
+            calculateCurrentDrama();
+
+            foreach (SuperQuest sq in quests)
             {
                 double fitness = sq.fitness;
                 if (relations)
@@ -54,14 +56,27 @@ namespace QuestGenerator
                 }
                 if (dramatic)
                 {
+                    sq.calcDrama();
                     fitness *= 1 / Math.Abs(drama - sq.drama);
                 }
-                vysl.Add(new Tuple<SuperQuest,double>( sq, fitness));
+                vysl.Add(new Tuple<SuperQuest, double>(sq, fitness));
             }
 
             vysl = vysl.OrderByDescending(t => t.Item2).ToList();
-           
+
             return vysl.Take(options).ToList();
+        }
+
+
+        public double calculateCurrentDrama()
+        {
+            int poradie = this.story.Count;
+            double res;
+
+
+
+            // this.drama = res;
+            return this.drama;
         }
     }
 }

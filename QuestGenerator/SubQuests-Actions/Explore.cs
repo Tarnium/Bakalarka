@@ -9,6 +9,7 @@ namespace QuestGenerator.SubQuests_Actions
     public class Explore : Quest
     {
         public Explore() {
+            this.Drama = 2;
             this.QuestText = new List<string>() { "Explore the ", "Getting to know the place might be useful."};
             this.Vars = new List<string>() { ObjectNpcLocation.GenerateLocation() };
         }

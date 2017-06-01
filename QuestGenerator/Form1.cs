@@ -21,6 +21,16 @@ namespace QuestGenerator
         {
             this.world = new World();
             InitializeComponent();
+            this.motivationFocusList.Items.Add("ability");
+            this.motivationFocusList.Items.Add("comfort");
+            this.motivationFocusList.Items.Add("conquest");
+            this.motivationFocusList.Items.Add("equipment");
+            this.motivationFocusList.Items.Add("knowledge");
+            this.motivationFocusList.Items.Add("protection");
+            this.motivationFocusList.Items.Add("reputation");
+            this.motivationFocusList.Items.Add("serenity");
+            this.motivationFocusList.Items.Add("wealth");
+
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.Columns.Add("questgiver", "Questgiver");
             dataGridView1.Columns.Add("questname", "Quest Name");
@@ -150,6 +160,9 @@ namespace QuestGenerator
         private void button10_Click(object sender, EventArgs e)
         {
             this.world.quests.Clear();
+            ObjectNpcLocation.locations = 0;
+            ObjectNpcLocation.objects = 0;
+            ObjectNpcLocation.person = 0;
             //Doplni svet nahodnymi postavami
             int count = this.world.people.Count;
             int max = Convert.ToInt32(charNumber.Value);
@@ -248,7 +261,9 @@ namespace QuestGenerator
             List<Tuple<SuperQuest, double>> fitQuests = world.getFittestQuests();
             foreach (Tuple<SuperQuest, double> t in fitQuests)
             {
+                if(t.Item2>0){
                 dataGridView1.Rows.Add(t.Item1.questgiver, t.Item1.name, t.Item1, t.Item2);
+                }
             }
         }
 
@@ -275,8 +290,24 @@ namespace QuestGenerator
                         outputFile.WriteLine(Environment.NewLine);
                     }
                 }
+                MessageBox.Show("Story saved in file story.txt.");
+            }
+        }
 
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Size = new Size(Convert.ToInt32(this.Width * 0.7), Convert.ToInt32(this.Height * 0.7));
+        }
 
+        private void dcCb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dcCb.Checked)
+            {
+                dramaSetting.Enabled = true;
+            }
+            else
+            {
+                dramaSetting.Enabled = false;
             }
         }
     }

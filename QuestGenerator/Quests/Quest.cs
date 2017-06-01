@@ -11,10 +11,12 @@ namespace QuestGenerator
         private List<string> vars;
         private List<string> questText;
         private Dictionary<string, double> relationchange = new Dictionary<string, double>();
+        private int drama;
 
         public List<string> QuestText { get => questText; set => questText = value; }
         public List<string> Vars { get => vars; set => vars = value; }
         public Dictionary<string, double> Relationchange { get => relationchange; set => relationchange = value; }
+        public int Drama { get => drama; set => drama = value; }
 
         public virtual string GenerateQuestText()
         {
@@ -29,6 +31,14 @@ namespace QuestGenerator
                 }
             }
             return vysl;
+        }
+
+        public void updateDrama(int dr)
+        {
+            if(this.Drama < dr)
+            {
+                this.Drama = dr;
+            }
         }
 
     }

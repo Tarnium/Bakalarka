@@ -12,6 +12,7 @@ namespace QuestGenerator.SubQuests_Actions
         public Get(int depth, int maxDepth)
         {
             int random = ObjectNpcLocation.random.Next(2);
+            this.Drama = 4;
             if (depth == maxDepth) random = 0;
             switch (random)
             {
@@ -24,7 +25,9 @@ namespace QuestGenerator.SubQuests_Actions
                 case 1:
                     depth++;
                     Quest q = new GoTo(depth, maxDepth);
+                    updateDrama(q.Drama);
                     Quest g = new Gather();
+                    updateDrama(g.Drama);
                     this.QuestText = new List<string>() { q.GenerateQuestText()+ g.QuestText[0]};
                     this.Vars = new List<string>() {g.Vars[0] };
                     break;
@@ -33,6 +36,7 @@ namespace QuestGenerator.SubQuests_Actions
                     Quest steal = new Steal(depth, maxDepth);
                     this.Vars = steal.Vars;
                     this.QuestText = steal.QuestText;
+                    updateDrama(steal.Drama);
                     break;
             }
         }

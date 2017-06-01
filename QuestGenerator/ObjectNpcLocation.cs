@@ -12,9 +12,9 @@ namespace QuestGenerator
     public static class ObjectNpcLocation
     {
         public static Random random = new Random();
-        static int locations = 0;
-        static int person = 0;
-        static int objects = 0;
+        public static int locations = 0;
+        public static int person = 0;
+        public static int objects = 0;
         static Random r = new Random();
         static string vysl;
 

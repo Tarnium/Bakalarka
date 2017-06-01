@@ -39,9 +39,23 @@ namespace QuestGenerator.Quests
                     vysl.Add(new Tuple<string, double>(k.Key, k.Value));
                 }
             }
-            vysl.Add(new Tuple<string, double>(questgiver, 1.3));
+            vysl.Add(new Tuple<string, double>(questgiver, 1.05));
             return vysl;
         }
+
+        public double calcDrama()
+        {
+            double maxDrama=-1;
+            foreach(Quest q in quests)
+            {
+                if(maxDrama < q.Drama)
+                {
+                    maxDrama = q.Drama;
+                }
+            }
+            this.drama = maxDrama / Math.Sqrt(this.quests.Count());
+            return this.drama;
+        } 
 
     }
 }
